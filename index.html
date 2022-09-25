@@ -24,6 +24,7 @@
                 width: 600px;
                 height: 600px;
                 position: fixed;
+                transition: all 1.5s ease;
                 transform: translate(-60%, -90%) rotate(-60deg);
             }
             .bae {
@@ -51,27 +52,28 @@
             }
             .text-container h1:nth-child(2) {
                 top: -10px;
-                left: -80px; 
+                left: -40px; 
                 text-shadow: var(--skyblue-shadow);
                 animation: bounceAndSpin 500s infinite;
             }
             .text-container h1:nth-child(3) {
                 top: -60px;
-                left: 80px;
+                left: 100px;
                 animation: bounceAndSpin 600s infinite;
             }
             .text-container h1:nth-child(4) {
                 top: -80px;
+                left: 30px;
                 text-shadow: var(--orangered-shadow);
                 animation: bounceAndSpin 700s infinite;
             }
             .text-container h1:nth-child(5) {
-                top: -40px;
+                top: -80px;
                 left: -80px;
                 animation: bounceAndSpin 800s infinite;
             }
             .text-container h1:nth-child(6) {
-                top: -90px;
+                top: -120px;
                 left: 30px;
                 text-shadow: var(--yellowgreen-shadow);
                 animation: bounceAndSpin 900s infinite;
@@ -134,6 +136,25 @@
                 .text-container h1 {
                     font-size: x-large;
                 }
+                .text-container h1:nth-child(2) {
+                    top: -40px;
+                }
+                .text-container h1:nth-child(3) {
+                    top: -80px;
+                    left: 40px;
+                }
+                .text-container h1:nth-child(4) {
+                    top: -130px;
+                    left: -20px;
+                }
+                .text-container h1:nth-child(5) {
+                    top: -130px;
+                    left: -50px;
+                }
+                .text-container h1:nth-child(6) {
+                    top: -230px;
+                    left: 30px;
+                }
             }
             @media (max-width: 450px) {
                 .salt-container {
@@ -148,6 +169,19 @@
                 .text-container h1 {
                     font-size: larger;
                 }
+                @media (max-height: 650px) {
+                    .bae {
+                        transform: rotate(30deg);
+                    }
+                    .salt-container {
+                        top: 70%;
+                        left: 145%;
+                    }
+                    .text-container {
+                        top: 65%;
+                        left: 70%;
+                    }
+                }
             }
         </style>
     </head>
@@ -156,11 +190,11 @@
             <img class="bae fade-out" src="images/saltbae.png">
         </div>
         <div class="text-container">
-            <h1 class="fade-out">🥳</h1>
-            <h1 class="fade-out">happy</h1>
             <h1 class="fade-out">💥</h1>
+            <h1 class="fade-out">happy</h1>
+            <h1 class="fade-out">🌟</h1>
             <h1 class="fade-out">birthday</h1>
-            <h1 class="fade-out">✨</h1>
+            <h1 class="fade-out">🔥</h1>
             <h1 class="fade-out" id="name"></h1>
         </div>
         <script>
@@ -168,12 +202,12 @@
             const icons = document.querySelectorAll('.text-container h1')
 
             function happyBirthday(name) {
-                document.title = `Happy BDAY ${name.charAt(0).toUpperCase() + name.slice(1)} 🤪`
+                document.title = `Happy BDAY ${name.charAt(0).toUpperCase() + name.slice(1)} 🥳`
                 document.getElementById('name').textContent = name
 
                 setTimeout(() => {
                     bae.classList.remove('fade-out')
-                }, 1000)
+                }, 0)
 
                 setTimeout(() => {
                     for (let i = 0; i < icons.length; i++) {
@@ -181,7 +215,7 @@
                             icons[i].classList.remove('fade-out')
                         }, 500 * i)
                     }
-                }, 2000)
+                }, 0)
             }
 
             window.addEventListener('load', happyBirthday('yasha'))
