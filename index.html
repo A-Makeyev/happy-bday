@@ -13,6 +13,7 @@
                 --yellowgreen-shadow: -1px 1px yellowgreen, -2px 2px black, -3px 3px yellowgreen, -4px 4px black, -5px 5px yellowgreen, -6px 6px black, -7px 7px yellowgreen, -8px 8px black;
             }
             body {
+                user-select: none;
                 text-transform: capitalize;
                 font-family: poppins, sans-serif;
                 background: linear-gradient(50deg, skyblue, aliceblue);
@@ -167,7 +168,7 @@
             const icons = document.querySelectorAll('.text-container h1')
 
             function happyBirthday(name) {
-                document.title = `Happy Birthday ${name.charAt(0).toUpperCase() + name.slice(1)} 🤪`
+                document.title = `Happy BDAY ${name.charAt(0).toUpperCase() + name.slice(1)} 🤪`
                 document.getElementById('name').textContent = name
 
                 setTimeout(() => {
