@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/x-icon" href="/images/pepe.png">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+            :root {
+                --orangered-shadow: -1px 1px orangered, -2px 2px black, -3px 3px orangered, -4px 4px black, -5px 5px orangered, -6px 6px black, -7px 7px orangered, -8px 8px black;
+                --skyblue-shadow: -1px 1px skyblue, -2px 2px black, -3px 3px skyblue, -4px 4px black, -5px 5px skyblue, -6px 6px black, -7px 7px skyblue, -8px 8px black;
+                --yellowgreen-shadow: -1px 1px yellowgreen, -2px 2px black, -3px 3px yellowgreen, -4px 4px black, -5px 5px yellowgreen, -6px 6px black, -7px 7px yellowgreen, -8px 8px black;
+            }
+            body {
+                text-transform: capitalize;
+                font-family: poppins, sans-serif;
+                background: linear-gradient(50deg, skyblue, aliceblue);
+            }
+            .salt-container {
+                top: 50%;
+                left: 90%;
+                width: 600px;
+                height: 600px;
+                position: fixed;
+                transform: translate(-60%, -90%) rotate(-60deg);
+            }
+            .bae {
+                width: 100%;
+                transition: all 1.5s ease;
+            }
+            .text-container {
+                top: 50%;
+                left: 80%;
+                width: 200px;
+                height: 400px;
+                position: fixed;
+                transition: all 1.5s ease;
+                transform: translate(-70%, -65%);
+            }
+            .text-container h1 {
+                width: 50px;
+                height: 50px;
+                margin: 50px;
+                position: relative;
+                transition: all 1.5s ease;
+            }
+            .text-container h1:nth-child(1) {
+                animation: bounceAndSpin 400s infinite;
+            }
+            .text-container h1:nth-child(2) {
+                top: -10px;
+                left: -80px; 
+                text-shadow: var(--skyblue-shadow);
+                animation: bounceAndSpin 500s infinite;
+            }
+            .text-container h1:nth-child(3) {
+                top: -60px;
+                left: 80px;
+                animation: bounceAndSpin 600s infinite;
+            }
+            .text-container h1:nth-child(4) {
+                top: -80px;
+                text-shadow: var(--orangered-shadow);
+                animation: bounceAndSpin 700s infinite;
+            }
+            .text-container h1:nth-child(5) {
+                top: -40px;
+                left: -80px;
+                animation: bounceAndSpin 800s infinite;
+            }
+            .text-container h1:nth-child(6) {
+                top: -90px;
+                left: 30px;
+                text-shadow: var(--yellowgreen-shadow);
+                animation: bounceAndSpin 900s infinite;
+            }
+            .bae.fade-out,
+            .text-container h1.fade-out {
+                opacity: 0;
+                visibility: hidden;
+            }
+            @keyframes bounceAndSpin {
+                0%,
+                100% {
+                    transform: translateY(0) translateX(-5px) rotate(-360deg);
+                }
+
+                50% {
+                    transform: translateY(50px) translateX(5px) rotate(360deg);
+                }
+            }
+            @media (max-width: 1500px) {
+                .text-container {
+                    left: 75%;
+                }
+            }
+            @media (max-width: 1000px) {
+                .bae {
+                    width: 90%;
+                }
+                .text-container {
+                    left: 70%;
+                }
+            }
+            @media (max-width: 800px) {
+                .bae {
+                    width: 80%;
+                }
+                .text-container {
+                    top: 55%;
+                    left: 60%;
+                }
+            }
+            @media (max-width: 650px) {
+                .text-container {
+                    left: 50%;
+                }
+                .text-container h1 {
+                    font-size: xx-large;
+                }
+            }
+            @media (max-width: 500px) {
+                .salt-container {
+                    left: 100%;
+                }
+                .bae {
+                    width: 70%;
+                }
+                .text-container {
+                    left: 50%;
+                }
+                .text-container h1 {
+                    font-size: x-large;
+                }
+            }
+            @media (max-width: 450px) {
+                .salt-container {
+                    left: 120%;
+                }
+                .bae {
+                    width: 60%;
+                }
+                .text-container {
+                    left: 50%;
+                }
+                .text-container h1 {
+                    font-size: larger;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="salt-container">
+            <img class="bae fade-out" src="images/saltbae.png">
+        </div>
+        <div class="text-container">
+            <h1 class="fade-out">🥳</h1>
+            <h1 class="fade-out">happy</h1>
+            <h1 class="fade-out">💥</h1>
+            <h1 class="fade-out">birthday</h1>
+            <h1 class="fade-out">✨</h1>
+            <h1 class="fade-out" id="name"></h1>
+        </div>
+        <script>
+            const bae = document.querySelector('.bae')
+            const icons = document.querySelectorAll('.text-container h1')
+
+            function happyBirthday(name) {
+                document.title = `Happy Birthday ${name.charAt(0).toUpperCase() + name.slice(1)} 🤪`
+                document.getElementById('name').textContent = name
+
+                setTimeout(() => {
+                    bae.classList.remove('fade-out')
+                }, 1000)
+
+                setTimeout(() => {
+                    for (let i = 0; i < icons.length; i++) {
+                        setTimeout(() => {
+                            icons[i].classList.remove('fade-out')
+                        }, 500 * i)
+                    }
+                }, 2000)
+            }
+
+            window.addEventListener('load', happyBirthday('yasha'))
+        </script>
+    </body>
+</html>
